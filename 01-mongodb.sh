@@ -12,3 +12,15 @@ if [ $USERID -ne 0 ]; then
  echo "please run the script with root access" | tee -a $LOGS_FILE
  exit 1
 fi
+
+VALIDATE(){
+    if [ $1 -ne 0 ]; then
+     echo "Failure" | tee -a $LOGS_FILE
+     exit 1
+    else 
+     echo "Success" | tee -a $LOGS_FILE
+    fi
+}
+
+cp mongo.repo /etc/yum.repos.d/mongo.repo
+VALIDATE $? "Adding mongo repo"
