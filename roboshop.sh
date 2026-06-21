@@ -27,7 +27,7 @@ else
    --query "Reservations[*].Instances[*].PrivateIpAddress" \
    --output text
     )
-    R53_RECORD="$instacne.$DOMAIN_NAME"
+    R53_RECORD="$instance.$DOMAIN_NAME"
 fi   
 ### Updating route53 Record
 aws route53 change-resource-record-sets \
