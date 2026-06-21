@@ -20,10 +20,10 @@ fi
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-     echo "$TIMESTAMP [ERROR] $R Failure $N" | tee -a $LOGS_FILE
+     echo -e "$TIMESTAMP [ERROR] $R Failure $N" | tee -a $LOGS_FILE
      exit 1
     else 
-     echo "$TIMESTAMP [INFO] $G Success" | tee -a $LOGS_FILE
+     echo -e "$TIMESTAMP [INFO] $G Success" | tee -a $LOGS_FILE
     fi
 }
 
