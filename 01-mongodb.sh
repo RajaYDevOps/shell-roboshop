@@ -7,18 +7,23 @@ sudo chmod -R 755 $LOGS_FOLDER
 LOGS_FILE="$LOGS_FOLDER/$0.log"
 
 USERID=$(id -u)
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 
 if [ $USERID -ne 0 ]; then
- echo "please run the script with root access" | tee -a $LOGS_FILE
+ echo -e "$TIMESTAMP [ERROR] $R please run the script with root access $N" | tee -a $LOGS_FILE
  exit 1
 fi
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-     echo "Failure" | tee -a $LOGS_FILE
+     echo "$TIMESTAMP [ERROR] $R Failure $N" | tee -a $LOGS_FILE
      exit 1
     else 
-     echo "Success" | tee -a $LOGS_FILE
+     echo "$TIMESTAMP [INFO] $G Success" | tee -a $LOGS_FILE
     fi
 }
 
