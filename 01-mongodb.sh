@@ -9,6 +9,6 @@ LOGS_FILE="$LOGS_FOLDER/$0.log"
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]; then
- echo "please run the script with root access" | tee -a $LOGS_FOLDER
+ echo "please run the script with root access" | tee -a $LOGS_FILE
  exit 1
 fi
