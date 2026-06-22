@@ -72,10 +72,10 @@ dnf install mongodb-mongosh -y &>>$LOGS_FILE
 VALIDATE $? "Installed MongoDB client"
 
 ##checking the index
-INDEX=$(mongosh --host mongodb.daws90s.shop --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
+INDEX=$(mongosh --host mongo.daws-90s.sbs --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
 
-if [ $INDEX -lt 0]; then
-    mongosh --host MONGODB-SERVER-IPADDRESS </app/db/master-data.js
+if [ $INDEX -lt 0 ]; then
+    mongosh --host mongo.daws-90s.sbs </app/db/master-data.js
     VALIDATE $? "Load Products"
 else
    echo -e "Products already loaded ... $Y SKIPPING $N"
