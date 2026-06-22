@@ -42,7 +42,7 @@ if [ $? -ne 0 ]; then
  useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
  VALIDATE $? "creating roboshop system user"
 else
- echo -e "system user roboshopm already created......$Y Skipping $N"
+ echo -e "system user roboshop already created......$Y Skipping $N"
 fi
 
 rm -rf /app
@@ -75,7 +75,7 @@ VALIDATE $? "Installed MongoDB client"
 INDEX=$(mongosh --host mongodb.daws-90s.sbs --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
 
 if [ $INDEX -lt 0 ]; then
-    mongosh --host mongodb.daws-90s.sbs </app/db/master-data.js
+    mongosh --host mongodb.daws-90s.sbs </app/db/master-data.js &>>$LOGS_FILE
     VALIDATE $? "Load Products"
 else
    echo -e "Products already loaded ... $Y SKIPPING $N"
