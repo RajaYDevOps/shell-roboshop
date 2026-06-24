@@ -34,7 +34,7 @@ do
    INSTANCE_ID=$(get_instance_id $instance)
    if [ $ACTION == "create" ]; then
      if [ $INSTANCE_ID == "None" ]; then
-      echo "Launching instance: $instance"
+      echo "Launching instance: roboshop-$instance"
       INSTANCE_ID=$(aws ec2 run-instances \
         --image-id $AMI_ID \
         --instance-type t3.micro \
@@ -42,11 +42,11 @@ do
         --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=roboshop-$instance}]" \
         --query 'Instances[0].InstanceId' \
         --output text
-    )
-      echo "Instance ID: $INSTANCE_ID"
+       )
+        echo "Instance ID: $INSTANCE_ID"
       #why below two statements are used, need to check
-      aws ec2 wait instance-running --instance-ids $INSTANCE_ID
-      echo "Instance is running: $INSTANCE_ID"
+        aws ec2 wait instance-running --instance-ids $INSTANCE_ID
+        echo "Instance is running: $INSTANCE_ID"
      else
       echo "roboshop-$instance already running: $INSTANCE_ID"
      fi
