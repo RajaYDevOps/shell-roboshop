@@ -66,5 +66,5 @@ cp $SCRIPT_DIR/user.service /etc/systemd/system/user.service
 VALIDATE $? "Created systemctl service"
 
 systemctl enable user &>>$LOGS_FILE
-systemctl start user &>>$LOGS_FILE
+systemctl restart user &>>$LOGS_FILE
 VALIDATE $? "Restarting user"

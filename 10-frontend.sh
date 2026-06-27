@@ -47,6 +47,6 @@ VALIDATE $? "Removed Default conf"
 cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf
 VALIDATE $? "Copied roboshop nginx conf"
 
-systemctl enable nginx 
-systemctl start nginx &>> LOGS_FILE
+systemctl enable nginx &>> LOGS_FILE
+systemctl restart nginx &>> LOGS_FILE
 VALIDATE $? "Enabled and restarted nginx"

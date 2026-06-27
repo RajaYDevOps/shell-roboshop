@@ -82,5 +82,5 @@ else
 fi
 
 systemctl enable catalogue &>>$LOGS_FILE
-systemctl start catalogue &>>$LOGS_FILE
+systemctl restart catalogue &>>$LOGS_FILE
 VALIDATE $? "Restarting catalogue"
